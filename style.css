@@ -1,0 +1,679 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #292929;
+    color: #f5f5f5;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            #555555 0%,
+            #383838 35%,
+            #292929 70%,
+            #1c1c1c 100%
+        );
+    z-index: -2;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+#opening {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 22px;
+    position: relative;
+}
+
+.opening-content {
+    max-width: 600px;
+    animation: fadeUp 1s ease;
+}
+
+.big-heart {
+    font-size: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,.18));
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+#opening h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#opening p {
+    color: #d1d1d1;
+    margin-bottom: 35px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+#openBtn {
+    border: 1px solid rgba(255,255,255,.6);
+    padding: 16px 42px;
+    border-radius: 999px;
+    background: #eeeeee;
+    color: #292929;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    transition: .3s ease;
+}
+
+#openBtn:hover {
+    background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(255,255,255,.12);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#mainContent {
+    display: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 22px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    animation: fadeUp 1.2s ease;
+}
+
+.from {
+    color: #c8c8c8;
+    letter-spacing: 3px;
+    font-size: .85rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 5px 25px rgba(0,0,0,.2);
+}
+
+.hero h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: #dedede;
+}
+
+.subtitle {
+    color: #c8c8c8;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin: 0 auto 35px;
+    max-width: 540px;
+}
+
+#memoryBtn {
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 999px;
+    padding: 16px 45px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #eeeeee;
+    color: #292929;
+    transition: .3s ease;
+}
+
+#memoryBtn:hover {
+    background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255,255,255,.1);
+}
+
+/* =========================
+   SECTION DIVIDERS
+========================= */
+
+.memories,
+.counter,
+.letter,
+.ending-section {
+    position: relative;
+}
+
+.memories::before,
+.letter::before,
+.ending-section::before {
+    content: '';
+    display: block;
+    width: 65px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #bdbdbd,
+        transparent
+    );
+    margin: 0 auto 35px;
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.memories h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.memories p {
+    color: #bfbfbf;
+    margin-bottom: 40px;
+    font-size: .95rem;
+}
+
+/* =========================
+   PHOTO SLIDER
+========================= */
+
+.slider {
+    width: min(320px, 85vw);
+    margin: auto;
+}
+
+.slides {
+    width: 100%;
+    height: 460px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #363636;
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    opacity: 0;
+    transform: scale(1.04);
+    transition:
+        opacity 1s ease,
+        transform 1.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dots {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    background: rgba(255,255,255,.25);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale(1.3);
+    box-shadow: 0 0 12px rgba(255,255,255,.35);
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter {
+    padding: 70px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.counter-card {
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.10),
+        rgba(255,255,255,.035)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 45px 35px;
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 15px 45px rgba(0,0,0,.15);
+}
+
+.counter-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 18px;
+    color: #f5f5f5;
+}
+
+.counter-card p {
+    color: #cccccc;
+    font-size: .98rem;
+    line-height: 1.9;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    padding: 100px 20px;
+}
+
+.letter h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.letter-box {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.085),
+        rgba(255,255,255,.035)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 25px;
+    padding: 45px;
+    line-height: 2;
+    box-shadow: 0 20px 60px rgba(0,0,0,.12);
+}
+
+.letter-box p {
+    margin-bottom: 22px;
+    color: #e0e0e0;
+    font-size: .98rem;
+    overflow-wrap: break-word;
+}
+
+.ending-text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff !important;
+    margin-top: 35px;
+}
+
+.signature {
+    margin-top: 45px;
+    text-align: right;
+    color: #c7c7c7;
+}
+
+.signature span {
+    font-size: .95rem;
+    letter-spacing: 1px;
+}
+
+.signature h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+/* =========================
+   ENDING
+========================= */
+
+.ending-section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.ending-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.ending-section p {
+    color: #c8c8c8;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+#musicBtn {
+    border: 1px solid rgba(255,255,255,.35);
+    padding: 15px 38px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.09);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: .95rem;
+    transition: .3s ease;
+}
+
+#musicBtn:hover {
+    background: rgba(255,255,255,.18);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255,255,255,.18);
+    animation: float 10s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,.08));
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120px) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   FALLING EFFECT
+========================= */
+
+.falling {
+    position: fixed;
+    top: -50px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    #opening h1 {
+        font-size: 2.5rem;
+    }
+
+    .big-heart {
+        font-size: 70px;
+    }
+
+    .hero {
+        padding: 40px 24px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero h3 {
+        font-size: 1.5rem;
+    }
+
+    .from {
+        font-size: .75rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: .95rem;
+    }
+
+    .memories {
+        padding: 80px 20px;
+    }
+
+    .memories h2 {
+        font-size: 2rem;
+    }
+
+    .slides {
+        height: min(460px, 125vw);
+    }
+
+    .counter {
+        padding: 45px 20px;
+    }
+
+    .counter-card {
+        padding: 35px 25px;
+    }
+
+    .counter-card h2 {
+        font-size: 1.7rem;
+    }
+
+    .letter {
+        padding: 80px 16px;
+    }
+
+    .letter h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .letter-box {
+        padding: 28px 23px;
+        line-height: 1.9;
+        border-radius: 20px;
+    }
+
+    .letter-box p {
+        font-size: .92rem;
+        margin-bottom: 20px;
+    }
+
+    .signature h3 {
+        font-size: 1.35rem;
+    }
+
+    .ending-section {
+        padding: 80px 22px;
+    }
+
+    .ending-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    #opening h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h3 {
+        font-size: 1.3rem;
+    }
+
+    .slider {
+        width: 85vw;
+    }
+
+    .slides {
+        height: 115vw;
+    }
+
+    .letter-box {
+        padding: 24px 18px;
+    }
+
+    .letter-box p {
+        font-size: .88rem;
+    }
+
+    .ending-section h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+      }
